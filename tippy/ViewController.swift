@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         let percentage1 = defaults.string(forKey: "percentage1") ?? "15"
         let percentage2 = defaults.string(forKey: "percentage2") ?? "18"
         let percentage3 = defaults.string(forKey: "percentage3") ?? "20"
+        let billValue = defaults.double(forKey: "billValue")
         
         tipPercentages[0] = Double(percentage1)! / 100.0;
         tipPercentages[1] = Double(percentage2)! / 100.0;
@@ -40,6 +41,8 @@ class ViewController: UIViewController {
         tipControl.setTitle("\(percentage1)%", forSegmentAt: 0)
         tipControl.setTitle("\(percentage2)%", forSegmentAt: 1)
         tipControl.setTitle("\(percentage3)%", forSegmentAt: 2)
+        
+        billField.text = String(format: "%.2f", billValue)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +59,7 @@ class ViewController: UIViewController {
         let percentage1 = defaults.string(forKey: "percentage1") ?? "15"
         let percentage2 = defaults.string(forKey: "percentage2") ?? "18"
         let percentage3 = defaults.string(forKey: "percentage3") ?? "20"
+        let billValue = defaults.double(forKey: "billValue")
         
         tipPercentages[0] = Double(percentage1)! / 100.0;
         tipPercentages[1] = Double(percentage2)! / 100.0;
@@ -64,6 +68,8 @@ class ViewController: UIViewController {
         tipControl.setTitle("\(percentage1)%", forSegmentAt: 0)
         tipControl.setTitle("\(percentage2)%", forSegmentAt: 1)
         tipControl.setTitle("\(percentage3)%", forSegmentAt: 2)
+        
+        billField.text = String(format: "%.2f", billValue)
     }
 
     @IBAction func onTap(_ sender: Any) {
@@ -72,11 +78,15 @@ class ViewController: UIViewController {
     
     
     @IBAction func calculateTip(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        
         // Get the bill amount
         let bill = Double(billField.text!) ?? 0
         
+        defaults.set(bill, forKey: "billValue")
+        defaults.synchronize()
+        
         // Calculate the tip and the total
-//        let tipPercentages = [0.15, 0.18, 0.2]
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
             
