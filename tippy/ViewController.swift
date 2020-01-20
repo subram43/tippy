@@ -18,9 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        
+                
         let defaults = UserDefaults.standard
         
         if (defaults.bool(forKey: "darkMode")) {
@@ -50,15 +48,15 @@ class ViewController: UIViewController {
         // Update changes
         let defaults = UserDefaults.standard
         
-        if (defaults.bool(forKey: "darkMode")) {
+        if defaults.bool(forKey: "darkMode") {
             overrideUserInterfaceStyle = .dark
         } else {
             overrideUserInterfaceStyle = .light
         }
         
-        let percentage1 = defaults.string(forKey: "percentage1") ?? "15"
-        let percentage2 = defaults.string(forKey: "percentage2") ?? "18"
-        let percentage3 = defaults.string(forKey: "percentage3") ?? "20"
+        let percentage1:String = defaults.string(forKey: "percentage1") ?? "15"
+        let percentage2:String = defaults.string(forKey: "percentage2") ?? "18"
+        let percentage3:String = defaults.string(forKey: "percentage3") ?? "20"
         let billValue = defaults.double(forKey: "billValue")
         
         tipPercentages[0] = Double(percentage1)! / 100.0;
@@ -81,18 +79,17 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         
         // Get the bill amount
-        let bill = Double(billField.text!) ?? 0
+        let bill:Double = Double(billField.text!) ?? 0
         
         defaults.set(bill, forKey: "billValue")
         defaults.synchronize()
         
         // Calculate the tip and the total
-        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
-        let total = bill + tip
+        let tip:Double = bill * tipPercentages[tipControl.selectedSegmentIndex]
+        let total:Double = bill + tip
             
         // Update the tip and total labels
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
     }
 }
-
