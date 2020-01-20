@@ -4,7 +4,7 @@ Tippy is a tip calculator application for iOS.
 
 Submitted by: Aditya Subramaniam
 
-Time spent: 3 hours spent in total
+Time spent: 3.5 hours spent in total
 
 ## User Stories
 
@@ -19,7 +19,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] Switch to enable dark mode
+- [X] Switch to enable dark mode
 
 ## Video Walkthrough 
 
