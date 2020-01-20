@@ -10,12 +10,12 @@ Time spent: 3 hours spent in total
 
 The following **required** functionality is complete:
 
-* [ ] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
+* [X] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
 
 The following **optional** features are implemented:
-* [ ] Settings page to change the default tip percentage.
-* [ ] Remembering the bill amount across app restarts (if <10mins)
-* [ ] Remembering the default tip percentage settings across app restarts (if <10mins)
+* [X] Settings page to change the default tip percentage.
+* [X] Remembering the bill amount across app restarts (if <10mins)
+* [X] Remembering the default tip percentage settings across app restarts (if <10mins)
 
 The following **additional** features are implemented:
 
@@ -24,7 +24,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-<br>
+<br><br>
 <img src='http://g.recordit.co/Mgynpr9mFt.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Recordit](http://www.recordit.co).
